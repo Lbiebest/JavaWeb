@@ -16,6 +16,7 @@
   - [响应](#响应)
     - [@ResponseBody](#responsebody)
     - [通过 Result 改造响应数据](#通过-result-改造响应数据)
+  - [案例](#案例)
 
 ---
 
@@ -62,8 +63,15 @@
 
 [Result.java][Result.java]
 
+## 案例
+
+![图 12](https://s2.loli.net/2024/01/23/ThuUexrdgQDBRkJ.png)  
+
+
 [RequestController.java]:../SpringProject-Response/src/main/java/com/springprojectresponse/controller/RequestController.java
 [RequestController1.java]:../SpringProject-Response/src/main/java/com/springprojectresponse/controller/RequestController1.java
 [RequestController2.java]:../SpringProject-Response/src/main/java/com/springprojectresponse/controller/RequestController2.java
 [RequestController3.java]:../SpringProject-Response/src/main/java/com/springprojectresponse/controller/RequestController3.java
 [Result.java]:../SpringProject-Response/src/main/java/com/springprojectresponse/Result.java
+
+

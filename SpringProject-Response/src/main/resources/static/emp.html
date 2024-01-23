@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emp</title>
+    <link rel="icon" href="https://lbiebest.github.io/img/head.png">
+</head>
+
+<body>
+<h1 style="width: 100%; text-align: center">员工信息展示页面</h1>
+<div id="app">
+    <table style="width: 100%" border="1">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>图片</th>
+            <th>性别</th>
+            <th>职位</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in tableData" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td>{{ item.age }}</td>
+            <td><img :src="item.image" alt="employee image" style="max-width: 100px; max-height: 100px;"></td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.job }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="module">
+    import {createApp, ref, onMounted} from "https://cdn.jsdelivr.net/npm/vue@3/dist/vue.esm-browser.js";
+    import axios from 'https://cdn.skypack.dev/axios';
+
+    const app = createApp({
+        setup() {
+            onMounted(async () => {
+                try {
+                    const response = await axios.get("http://localhost:8080/listEmp");
+                    if (response.data.success) {
+                        tableData.value = response.data.data;
+                    }
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+
+            const tableData = ref([]);
+
+            return {
+                tableData,
+            };
+        }
+    });
+
+    app.mount("#app");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <emp>
+        <name>John Doe</name>
+        <age>30</age>
+        <image>https://api-storage.4ce.cn/v1/5910ce7790e91da5ca5a2b0171ada42c.jpg</image>
+        <gender>1</gender>
+        <job>软件工程师</job>
+    </emp>
+    <emp>
+        <name>Jane Doe</name>
+        <age>25</age>
+        <image>https://api-storage.4ce.cn/v1/c241c1ed069ef6f9797e6d4042870d62.jpg</image>
+        <gender>2</gender>
+        <job>数据分析师</job>
+    </emp>
+    <emp>
+        <name>Alice Smith</name>
+        <age>28</age>
+        <image>https://api-storage.4ce.cn/v1/a999c859fdda00566f1d5105e08638f1.jpg</image>
+        <gender>2</gender>
+        <job>产品经理</job>
+    </emp>
+    <emp>
+        <name>Bob Johnson</name>
+        <age>35</age>
+        <image>https://api-storage.4ce.cn/v1/9c41896fb91284e29b807af35ff91cf3.jpg</image>
+        <gender>1</gender>
+        <job>市场营销</job>
+    </emp>
+    <emp>
+        <name>Eva Williams</name>
+        <age>27</age>
+        <image>https://api-storage.4ce.cn/v1/7e67a7d5a689c35fc244b860771fbe54.jpg</image>
+        <gender>2</gender>
+        <job>软件开发</job>
+    </emp>
+</employees>

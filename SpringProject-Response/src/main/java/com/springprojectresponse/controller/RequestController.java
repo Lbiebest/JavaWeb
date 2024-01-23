@@ -1,13 +1,18 @@
 package com.springprojectresponse.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.springprojectresponse.pojo.User1;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+//@Controller
+//@ResponseBody
+//组合注解
 @RestController
 public class RequestController {
 
@@ -65,4 +70,26 @@ public class RequestController {
         return "OK";
     }
 
+    //    日期时间参数
+    //    通过 @DateTimeFormat 指定传递的时间参数格式
+    @RequestMapping("/dateParam")
+    public String dateParam(@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime updateDateTime) {
+        System.out.println(updateDateTime);
+        return "OK";
+    }
+
+    //    json 参数
+    //    通过 @RequestBody 指定传递 json 数据
+    @RequestMapping("/jsonParam")
+    public String jsonParam(@RequestBody User1 user1) {
+        System.out.println(user1);
+        return "OK";
+    }
+
+    //    路径参数
+    @RequestMapping("/path/{id}/{name}")
+    public String pathParam(@PathVariable Integer id, @PathVariable String name) {
+        System.out.println(id + " : " + name);
+        return "OK";
+    }
 }

@@ -10,6 +10,7 @@
   - [Web 服务器](#web-服务器)
     - [Tomcat](#tomcat)
   - [请求响应](#请求响应)
+  - [分层解耦](#分层解耦)
 
 ---
 
@@ -103,6 +104,28 @@ public class HelloController {
 > `HttpsServletResponse`: 获取响应数据
 
 ## [请求响应][请求响应]
+
+## 分层解耦
+
+1. 三层架构
+
+> 接受请求、响应数据 controller
+> 逻辑处理 service
+> 数据访问 Data Access Object
+
+通过EmpDaoA实现类实现数据访问
+通过EmpServiceA实现类实现逻辑处理
+通过EmpController1实现接受请求，响应数据
+
+采用三层架构提升复用性，便于维护
+
+2. 分层解耦
+
+3. IOC & DI
+
+4. IOC
+
+5. DI
 
 ---
 

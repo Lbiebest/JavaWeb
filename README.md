@@ -29,7 +29,7 @@
 
 ## [数据库][数据库]
 
-[Maven]:(https://maven.apache.org/)
+[Maven]:https://maven.apache.org/
 [Springboot]:Note/Springboot.md
 [HTTP]:Note/HTTP.md
 [Web 服务器]:Note/Web服务器.md

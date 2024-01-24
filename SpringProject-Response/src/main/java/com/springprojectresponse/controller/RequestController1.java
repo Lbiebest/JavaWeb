@@ -1,6 +1,5 @@
 package com.springprojectresponse.controller;
 
-import com.springprojectresponse.pojo.User;
 import com.springprojectresponse.pojo.User1;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

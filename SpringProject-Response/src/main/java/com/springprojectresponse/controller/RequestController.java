@@ -2,10 +2,8 @@ package com.springprojectresponse.controller;
 
 import com.springprojectresponse.pojo.User1;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;

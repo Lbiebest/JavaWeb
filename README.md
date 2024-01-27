@@ -8,6 +8,7 @@
   - [请求响应](#请求响应)
   - [分层解耦](#分层解耦)
   - [数据库](#数据库)
+  - [Mybatis](#mybatis)
 
 ---
 
@@ -29,6 +30,10 @@
 
 ## [数据库][数据库]
 
+## [Mybatis][Mybatis]
+
+持久层框架，简化JDBC的开发
+
 [Maven]:https://maven.apache.org/
 [Springboot]:Note/Springboot.md
 [HTTP]:Note/HTTP.md
@@ -36,3 +41,4 @@
 [请求响应]:Note/请求响应.md
 [分层解耦]:Note/分层解耦.md
 [数据库]:Note/数据库.md
+[Mybatis]:Note/Mybatis.md

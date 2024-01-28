@@ -4,6 +4,7 @@
   - [Mybits 入门](#mybits-入门)
     - [Lombok](#lombok)
   - [Mybits 增删改查](#mybits-增删改查)
+    - [Delete](#delete)
   - [Mybits 动态 SQL](#mybits-动态-sql)
 
 ---
@@ -59,6 +60,23 @@
 | @AllArgsConstructor | 提供有参构造器             |
 
 ## Mybits 增删改查
+
+### Delete
+
+```java
+// 接口方法
+@Delete("delete from emp where id = #{id}")
+void delete(Integer id);
+```
+
+```java
+// 采用预编译SQL
+// 提升性能
+// 防止SQL注入
+==>  Preparing: delete from emp where id = ?
+==> Parameters: 19(Integer)
+<==    Updates: 0
+```
 
 ## Mybits 动态 SQL
 

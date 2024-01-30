@@ -4,7 +4,25 @@
 
 <mapper namespace="com.springprojectmybatis.mapper.EmpMapper">
     <select id="select" resultType="com.springprojectmybatis.pojo.Emp">
-        SELECT * FROM emp WHERE name LIKE CONCAT('%', #{name}, '%') AND gender = #{gender} AND entry_time BETWEEN
-        #{startTime} AND #{endTime} ORDER BY update_time DESC
+        SELECT *
+        FROM emp
+        <where>
+            <if test="name != null">
+                name LIKE CONCAT('%',
+                #{name},
+                '%'
+                )
+            </if>
+            <if test="gender != null">
+                AND gender = #{gender}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND entry_time BETWEEN
+                #{startTime}
+                AND
+                #{endTime}
+            </if>
+        </where>
+        ORDER BY update_time DESC
     </select>
 </mapper>

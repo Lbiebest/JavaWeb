@@ -202,6 +202,38 @@ Closing non transactional SqlSession [org.apache.ibatis.session.defaults.Default
 
 ## Mybits 动态 SQL
 
+通过动态标签实现 SQL 的 动态查询 
 
+```xml
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springprojectmybatis.mapper.EmpMapper">
+    <select id="select" resultType="com.springprojectmybatis.pojo.Emp">
+        SELECT *
+        FROM emp
+        <where>
+            <if test="name != null">
+                name LIKE CONCAT('%',
+                #{name},
+                '%'
+                )
+            </if>
+            <if test="gender != null">
+                AND gender = #{gender}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND entry_time BETWEEN
+                #{startTime}
+                AND
+                #{endTime}
+            </if>
+        </where>
+        ORDER BY update_time DESC
+    </select>
+</mapper>
+
+```
 
 [Mybits]:https://mybatis.org/mybatis-3/

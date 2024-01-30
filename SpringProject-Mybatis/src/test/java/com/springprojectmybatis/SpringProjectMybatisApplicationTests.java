@@ -80,6 +80,9 @@ class SpringProjectMybatisApplicationTests {
                 LocalDate.of(2021, 3, 3),
                 LocalDate.of(2023, 3, 3)
         );
-        System.out.println(select);
+
+        List<Emp> selected = empMapper.select(null, null, null, null);
+
+        System.out.println(selected);
     }
 }

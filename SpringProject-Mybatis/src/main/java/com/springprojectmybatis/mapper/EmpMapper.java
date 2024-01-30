@@ -15,11 +15,13 @@ public interface EmpMapper {
 
     // 插入功能
     @Options(keyProperty = "id", useGeneratedKeys = true)
-    @Insert("insert into emp(username, name, image, job, entry_time, create_time, update_time)" + "  values (#{username},#{name},#{image},#{job},#{entryTime},#{createTime},#{updateTime});")
+    @Insert("insert into emp(username, name, image, job, entry_time, create_time, update_time)" +
+            "  values (#{username},#{name},#{image},#{job},#{entryTime},#{createTime},#{updateTime});")
     void insert(Emp emp);
 
     // 更新功能
-    @Update("UPDATE emp SET username = #{username}, name = #{name}, image = #{image}, job = #{job}, " + "update_time = #{updateTime} WHERE id = #{id}")
+    @Update("UPDATE emp SET username = #{username}, name = #{name}, image = #{image}, job = #{job}, " +
+            "update_time = #{updateTime} WHERE id = #{id}")
     void update(Emp emp);
 
     // 查询功能
@@ -33,7 +35,8 @@ public interface EmpMapper {
     //            @Result(column = "update_time", property = "updateTime")
     //    })
     // 3. mybatis 驼峰命名自动映射开关
-    @Select("select id, username, password, name, gender, image, job, entry_time, create_time, update_time" + " from emp where id = #{id}")
+    @Select("select id, username, password, name, gender, image, job, entry_time, create_time, update_time" +
+            " from emp where id = #{id}")
     Emp getByID(Integer id);
 
     // name 字段需要实现模糊搜索

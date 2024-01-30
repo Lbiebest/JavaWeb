@@ -210,21 +210,41 @@ Closing non transactional SqlSession [org.apache.ibatis.session.defaults.Default
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.springprojectmybatis.mapper.EmpMapper">
-    <select id="select" resultType="com.springprojectmybatis.pojo.Emp">
-        SELECT *
+    <sql id="commonSelect">
+        SELECT id, username, password, name, gender, image, job, entry_time, create_time, update_time
         FROM emp
+    </sql>
+
+    <delete id="deleteByIds">
+        delete from emp where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateInfo">
+        update emp
+        <set>
+            <if test="username != null">username = #{username},</if>
+            <if test="name != null">name= #{name},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="image !=null">image = #{image},</if>
+            <if test="job != null">job = #{job},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="select" resultType="com.springprojectmybatis.pojo.Emp">
+        <include refid="commonSelect" />
         <where>
-            <if test="name != null">
-                name LIKE CONCAT('%',
+            <if test="name != null">name LIKE CONCAT('%',
                 #{name},
                 '%'
                 )
             </if>
-            <if test="gender != null">
-                AND gender = #{gender}
-            </if>
-            <if test="startTime != null and endTime != null">
-                AND entry_time BETWEEN
+            <if test="gender != null">AND gender = #{gender}</if>
+            <if test="startTime != null and endTime != null">AND entry_time BETWEEN
                 #{startTime}
                 AND
                 #{endTime}
@@ -233,7 +253,6 @@ Closing non transactional SqlSession [org.apache.ibatis.session.defaults.Default
         ORDER BY update_time DESC
     </select>
 </mapper>
-
 ```
 
 [Mybits]:https://mybatis.org/mybatis-3/

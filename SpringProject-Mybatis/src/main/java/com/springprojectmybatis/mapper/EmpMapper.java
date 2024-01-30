@@ -45,4 +45,11 @@ public interface EmpMapper {
     //    @Select("SELECT * FROM emp WHERE name LIKE CONCAT('%', #{name}, '%') AND gender = #{gender} " +
     //            "AND entry_time BETWEEN #{startTime} AND #{endTime} ORDER BY update_time DESC")
     List<Emp> select(String name, Short gender, LocalDate startTime, LocalDate endTime);
+
+
+    void updateInfo(Emp emp);
+
+
+    //    批量删除
+    void deleteByIds(List<Integer> ids);
 }

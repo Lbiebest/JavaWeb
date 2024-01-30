@@ -39,7 +39,7 @@ public interface EmpMapper {
     // name 字段需要实现模糊搜索
     // 1. 字符串中使用 ${} 替换 #{}, 会产生安全问题
     // 2. 通过 sql 中的 concat() 实现
-    @Select("SELECT * FROM emp WHERE name LIKE CONCAT('%', #{name}, '%') AND gender = #{gender} " +
-            "AND entry_time BETWEEN #{startTime} AND #{endTime} ORDER BY update_time DESC")
+    //    @Select("SELECT * FROM emp WHERE name LIKE CONCAT('%', #{name}, '%') AND gender = #{gender} " +
+    //            "AND entry_time BETWEEN #{startTime} AND #{endTime} ORDER BY update_time DESC")
     List<Emp> select(String name, Short gender, LocalDate startTime, LocalDate endTime);
 }

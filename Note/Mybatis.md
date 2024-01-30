@@ -8,6 +8,7 @@
     - [Insert](#insert)
     - [Update](#update)
     - [Select](#select)
+    - [XML 映射](#xml-映射)
   - [Mybits 动态 SQL](#mybits-动态-sql)
 
 ---
@@ -182,6 +183,25 @@ Closing non transactional SqlSession [org.apache.ibatis.session.defaults.Default
 [Emp(id=1, username=user1, password=75922139, name=张三, gender=1, image=image1.jpg, job=null, entryTime=2022-01-01, createTime=2024-01-28T17:54:03, updateTime=2024-01-28T18:09:35)]
 ```
 
+### XML 映射
+
+通过 xml 文件创建映射实现 sql 执行
+
+```xml
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springprojectmybatis.mapper.EmpMapper">
+    <select id="select" resultType="com.springprojectmybatis.pojo.Emp">
+        SELECT * FROM emp WHERE name LIKE CONCAT('%', #{name}, '%') AND gender = #{gender} AND entry_time BETWEEN
+        #{startTime} AND #{endTime} ORDER BY update_time DESC
+    </select>
+</mapper>
+```
+
 ## Mybits 动态 SQL
+
+
 
 [Mybits]:https://mybatis.org/mybatis-3/
